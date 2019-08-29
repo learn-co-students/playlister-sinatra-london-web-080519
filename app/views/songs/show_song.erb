@@ -1,0 +1,14 @@
+<% #if @newly_created %>
+    <p>Successfully created song.</p>
+<% #end %>
+<% #if @newly_updated %>
+    <p>Successfully updated song.</p>
+<% #end %>
+
+<p>Name: <%= @song.name %></p>
+<p>Artist: <a href="/artists/<%= @song.artist.slug %>"><%= @song.artist.name %></a>
+<p>Genres: 
+<% @song.genres.each do |genre| %>
+    <a href="/genres/<%= genre.slug %>"><%= genre.name %></a>
+<% end %>
+</p>
